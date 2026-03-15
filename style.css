@@ -60,5 +60,13 @@ a:hover {
   background: #555;
   text-decoration: none;
 }
+
+  .container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+  
   
 }
