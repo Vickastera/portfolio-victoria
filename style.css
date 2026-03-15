@@ -1,19 +1,39 @@
 body {
   font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
   background-color: #f8f9fa;
   color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 h1 {
   color: #222;
+  margin-bottom: 10px;
 }
 
 h2 {
   margin-top: 30px;
   color: #444;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #555;
 }
 
 img {
@@ -35,12 +55,43 @@ a:hover {
   text-decoration: underline;
 }
 
+nav {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 .project-card {
   background: white;
   padding: 20px;
   margin-bottom: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 12px;
+}
+
+.skills-list li {
+  background: #eef2f7;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+}
 
 .contact-buttons {
   margin-top: 10px;
@@ -59,51 +110,4 @@ a:hover {
 .contact-btn:hover {
   background: #555;
   text-decoration: none;
-}
-
-  .container {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-  <div class="hero">
-  <h1>Hola, soy Victoria 👋</h1>
-  <img src="3c99e1fa-4c85-4966-9177-17f2af756e2b.png" width="170">
-  <p>Estudiante de Análisis de Sistemas y desarrolladora web en formación.</p>
-</div>
-
-.skills-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 12px;
-}
-
-.skills-list li {
-  background: #eef2f7;
-  margin-bottom: 10px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-  nav {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #0077cc;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-  
-  
-  
 }
