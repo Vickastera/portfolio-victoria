@@ -1,359 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victoria Castera — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --black: #060608;
-      --dark: #0d0d12;
-      --card: #111118;
-      --border: #1e1e2a;
-      --gold: #c9a84c;
-      --gold-dim: #8a6f2e;
-      --silver: #a0a8b8;
-      --white: #e8e4d8;
-      --red: #8b1a1a;
-    }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap"
+    rel="stylesheet"
+  />
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Crimson Pro', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    /* Background texture */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: 
-        radial-gradient(ellipse at 20% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(139, 26, 26, 0.06) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Nav */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 20px;
-      background: rgba(6, 6, 8, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav a {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--silver);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    nav a:hover { color: var(--gold); }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 40px 80px;
-      z-index: 1;
-    }
-
-    .hero-raven {
-      font-size: 80px;
-      margin-bottom: 30px;
-      animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 30px rgba(201, 168, 76, 0.3));
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .hero-photo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--gold-dim);
-      margin-bottom: 30px;
-      box-shadow: 0 0 40px rgba(201, 168, 76, 0.15);
-    }
-
-    .hero h1 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      color: var(--white);
-      letter-spacing: 4px;
-      margin-bottom: 8px;
-    }
-
-    .hero-title {
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      letter-spacing: 5px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: var(--silver);
-      max-width: 500px;
-      font-style: italic;
-    }
-
-    .divider {
-      width: 120px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
-      margin: 40px auto;
-    }
-
-    /* Sections */
-    section {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 80px 40px;
-    }
-
-    .section-title {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 30px;
-    }
-
-    p { color: var(--silver); margin-bottom: 16px; }
-
-    /* Skills */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .skill-tag {
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold-dim);
-      padding: 8px 16px;
-      border-radius: 2px;
-      background: rgba(201, 168, 76, 0.05);
-      transition: all 0.3s;
-    }
-
-    .skill-tag:hover {
-      background: rgba(201, 168, 76, 0.12);
-      border-color: var(--gold);
-    }
-
-    /* Project cards */
-    .projects-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 30px;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .project-card:hover {
-      border-color: var(--gold-dim);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .project-card:hover::before { opacity: 1; }
-
-    .project-card.featured {
-      border-color: var(--gold-dim);
-    }
-
-    .project-card.featured::before { opacity: 1; }
-
-    .project-tag {
-      font-family: 'Cinzel', serif;
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .project-card h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .project-card p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--black);
-    }
-
-    .btn-primary:hover {
-      background: #e0bc5a;
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      color: var(--silver);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--gold-dim);
-      color: var(--gold);
-    }
-
-    /* Education */
-    .edu-list {
-      list-style: none;
-    }
-
-    .edu-list li {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-      color: var(--silver);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .edu-list li::before {
-      content: '◆';
-      color: var(--gold-dim);
-      font-size: 8px;
-      flex-shrink: 0;
-    }
-
-    /* Contact */
-    .contact-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px;
-      border-top: 1px solid var(--border);
-      color: var(--gold-dim);
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Fade in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in:nth-child(2) { animation-delay: 0.2s; }
-    .fade-in:nth-child(3) { animation-delay: 0.4s; }
-
-    @media (max-width: 600px) {
-      nav { gap: 20px; }
-      section { padding: 60px 24px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -364,95 +23,190 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <div class="hero">
+  <header class="hero">
     <div class="hero-raven fade-in">🐦‍⬛</div>
-    <img class="hero-photo fade-in" src="3c99e1fa-4c85-4966-9177-17f2af756e2b.png" alt="Victoria Castera">
-    <p class="hero-title fade-in">Frontend Developer · Systems Analyst · Graphic Designer</p>
+
+    <img
+      class="hero-photo fade-in"
+      src="3c99e1fa-4c85-4966-9177-17f2af756e2b.png"
+      alt="Victoria Castera"
+    />
+
+    <p class="hero-title fade-in">
+      Frontend Developer · Systems Analyst · Graphic Designer
+    </p>
+
     <h1 class="fade-in">Victoria Castera</h1>
+
+    <p class="hero-subtitle fade-in">
+      Building clean interfaces, practical tools and security-focused projects with code and design.
+    </p>
+
     <div class="divider"></div>
-  </div>
+  </header>
 
-  <section id="sobre-mi">
-    <p class="section-title">I · Sobre mí</p>
-    <h2>Quién soy</h2>
-    <p>Me interesa el desarrollo web, la seguridad y el diseño de interfaces. Combino mi experiencia en soporte técnico con habilidades en Python, JavaScript y React.</p>
-    <p>Customer Service Agent con experiencia en soporte técnico, atención al cliente y sistemas de ticketing. Experiencia en herramientas como Zendesk, CRM y sistemas digitales.</p>
-    <div class="divider"></div>
-    <div class="skills-grid">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">Flask</span>
-      <span class="skill-tag">HTML</span>
-      <span class="skill-tag">CSS</span>
-      <span class="skill-tag">JavaScript</span>
-      <span class="skill-tag">React</span>
-      <span class="skill-tag">SQL</span>
-      <span class="skill-tag">Git</span>
-      <span class="skill-tag">GitHub</span>
-    </div>
-  </section>
+  <main>
+    <section id="sobre-mi">
+      <p class="section-title">I · Sobre mí</p>
+      <h2>Quién soy</h2>
 
-  <section id="proyectos">
-    <p class="section-title">II · Proyectos</p>
-    <h2>Mi trabajo</h2>
-    <div class="projects-grid">
+      <p>
+        Me interesa el desarrollo web, la seguridad y el diseño de interfaces.
+        Combino mi experiencia en soporte técnico con habilidades en Python,
+        JavaScript y React para crear proyectos funcionales, claros y bien estructurados.
+      </p>
 
-      <div class="project-card featured">
-        <span class="project-tag">⭐ Proyecto destacado · Python · Flask · SQLite</span>
-        <h3>🐦‍⬛ RavenLog</h3>
-        <p>Lightweight security monitoring tool that detects suspicious server activity — failed logins, admin probes, vulnerability scans. Provides a real-time dashboard and JSON API.</p>
-        <div class="project-links">
-          <a class="btn btn-primary" href="https://logsentinel-bm52.onrender.com" target="_blank">Demo en vivo</a>
-          <a class="btn btn-secondary" href="https://github.com/Vickastera/ravenlog" target="_blank">Repositorio</a>
-        </div>
+      <p>
+        Tengo experiencia en atención al cliente, soporte técnico, sistemas de ticketing
+        y herramientas como Zendesk, CRM y plataformas digitales. Disfruto resolver problemas,
+        aprender rápido y mejorar la experiencia del usuario.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="skills-grid">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">SQLite</span>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
       </div>
+    </section>
 
-      <div class="project-card">
-        <span class="project-tag">HTML · CSS · JavaScript</span>
-        <h3>Study Planner</h3>
-        <p>Aplicación de tareas de estudio creada con HTML, CSS, JavaScript y localStorage.</p>
-        <div class="project-links">
-          <a class="btn btn-primary" href="https://vickastera.github.io/study-planner-victoria/" target="_blank">Ver proyecto</a>
-          <a class="btn btn-secondary" href="https://github.com/Vickastera/study-planner-victoria" target="_blank">Repositorio</a>
-        </div>
+    <section id="proyectos">
+      <p class="section-title">II · Proyectos</p>
+      <h2>Mi trabajo</h2>
+
+      <div class="projects-grid">
+
+        <article class="project-card featured">
+          <span class="project-tag">⭐ Proyecto destacado · Python · Flask · SQLite</span>
+          <h3>🐦‍⬛ RavenLog</h3>
+          <p>
+            Lightweight security monitoring tool that parses server logs,
+            detects suspicious activity such as failed logins, admin probes and scans,
+            stores normalized events, and exposes both a web dashboard and a JSON API.
+          </p>
+
+          <div class="project-links">
+            <a
+              class="btn btn-primary"
+              href="https://logsentinel-bm52.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Demo en vivo
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/Vickastera/ravenlog"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Repositorio
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">HTML · CSS · JavaScript</span>
+          <h3>Study Planner</h3>
+          <p>
+            Aplicación de planificación de estudio creada con HTML, CSS,
+            JavaScript y localStorage para organizar tareas y mejorar hábitos.
+          </p>
+
+          <div class="project-links">
+            <a
+              class="btn btn-primary"
+              href="https://vickastera.github.io/study-planner-victoria/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver proyecto
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/Vickastera/study-planner-victoria"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Repositorio
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">React</span>
+          <h3>Login en React</h3>
+          <p>
+            Aplicación simple de login creada con React como práctica de componentes,
+            estructura y manejo básico de interfaz.
+          </p>
+
+          <div class="project-links">
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/Vickastera/Login-in-React"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Repositorio
+            </a>
+          </div>
+        </article>
+
       </div>
+    </section>
 
-      <div class="project-card">
-        <span class="project-tag">React</span>
-        <h3>Login en React</h3>
-        <p>Aplicación simple de login creada con React.</p>
-        <div class="project-links">
-          <a class="btn btn-secondary" href="https://github.com/Vickastera/Login-in-React" target="_blank">Repositorio</a>
-        </div>
+    <section id="educacion">
+      <p class="section-title">III · Educación</p>
+      <h2>Formación</h2>
+
+      <ul class="edu-list">
+        <li>Analista de Sistemas — en curso</li>
+        <li>Frontend Developer — Senpai Academy</li>
+        <li>Diseño Gráfico y Comunicación Visual — UTU</li>
+      </ul>
+    </section>
+
+    <section id="contacto">
+      <p class="section-title">IV · Contacto</p>
+      <h2>Encontrame en</h2>
+
+      <p>Podés encontrarme en estas plataformas:</p>
+
+      <div class="contact-row">
+        <a
+          class="btn btn-primary"
+          href="https://www.linkedin.com/in/victoriacastera/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="https://github.com/Vickastera"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
       </div>
-
-    </div>
-  </section>
-
-  <section id="educacion">
-    <p class="section-title">III · Educación</p>
-    <h2>Formación</h2>
-    <ul class="edu-list">
-      <li>Analista de Sistemas — en curso</li>
-      <li>Frontend Developer — Senpai Academy</li>
-      <li>Diseño Gráfico y Comunicación Visual — UTU</li>
-    </ul>
-  </section>
-
-  <section id="contacto">
-    <p class="section-title">IV · Contacto</p>
-    <h2>Encontrame en</h2>
-    <p>¡Podés encontrarme en estas plataformas!</p>
-    <div class="contact-row">
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/victoriacastera/" target="_blank">LinkedIn</a>
-      <a class="btn btn-secondary" href="https://github.com/Vickastera" target="_blank">GitHub</a>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    Victoria Castera · 2026 · "The night is dark and full of bugs."
+    Victoria Castera · 2026 · Crafted with code and intention.
   </footer>
 
 </body>
-</html>
-
 </html>
