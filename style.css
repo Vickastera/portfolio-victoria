@@ -86,22 +86,6 @@ nav a:hover {
   padding: 120px 40px 80px;
 }
 
-.hero-raven {
-  font-size: 80px;
-  margin-bottom: 30px;
-  animation: float 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 30px rgba(201, 168, 76, 0.3));
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
 .hero-photo {
   width: 140px;
   height: 140px;
@@ -388,10 +372,6 @@ footer {
 
   .hero {
     padding: 140px 24px 60px;
-  }
-
-  .hero-raven {
-    font-size: 64px;
   }
 
   .hero-photo {
